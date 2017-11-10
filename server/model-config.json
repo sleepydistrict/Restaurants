@@ -38,5 +38,9 @@
   "restaurants": {
     "dataSource": "db",
     "public": true
+  },
+  "cuisine": {
+    "dataSource": "db",
+    "public": true
   }
 }
