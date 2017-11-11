@@ -24,6 +24,15 @@ class Details extends Component{
     })
     .catch(err => console.log(err));
   }
+
+  onDelete(){
+    let restaurantId = this.state.details.id;
+    axios.delete(`http://localhost:3000/api/restaurants/${restaurantId}`)
+      .then(response => {
+        this.props.history.push('/');
+      }).catch(err => console.log(err));
+      
+  }
   
   render(){
     return (
@@ -37,7 +46,7 @@ class Details extends Component{
          <li className="collection-item">Hours: {this.state.details.hours}</li>
        </ul> 
        <Link className="btn" to={`/restaurants/edit/${this.state.details.id}`}>Edit</Link> 
-      <button className="btn red right">Delete</button>
+      <button onClick={this.onDelete.bind(this)} className="btn red right">Delete</button>
      </div>  
     )
   }
